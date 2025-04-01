@@ -11,11 +11,11 @@ import torchvision
 from termcolor import colored
 from torch.utils.tensorboard import SummaryWriter
 
-ONLINE_TRAIN_FORMAT = [('step', 'S', 'int'),
-                       ('episode', 'E', 'int'), ('episode_length', 'L', 'int'),
-                       ('episode_reward', 'R', 'float'),
-                       ('buffer_size', 'BS', 'int'), ('fps', 'FPS', 'float'),
-                       ('total_time', 'T', 'time')]
+ONLINE_TRAIN_FORMAT = [('step', 'Step #', 'int'),
+                       ('episode', 'Episode #', 'int'), ('episode_length', 'Length of Episode', 'int'),
+                       ('episode_reward', 'Episode Total Reward', 'float'),
+                       ('buffer_size', 'Buffer Size', 'int'), ('fps', 'Frames/s', 'float'),
+                       ('total_time', 'Time ran', 'time')]
 
 ONLINE_EVAL_FORMAT = [('step', 'S', 'int'),
                       ('episode', 'E', 'int'), ('episode_length', 'L', 'int'),
@@ -115,6 +115,8 @@ class MetersGroup(object):
         elif ty == 'time':
             value = str(datetime.timedelta(seconds=int(value)))
             return f'{key}: {value}'
+        # elif ty == 'str':
+        #     return f'{key}: {value}'
         else:
             raise f'invalid format type: {ty}'
 

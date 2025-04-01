@@ -302,13 +302,13 @@ class CrafterLMGoalWrapper(CrafterGoalWrapper):
         for suggestion, cos_score in zip(suggestion_strs, cos_scores):
             # print("High score:", cos_score, "for action", action_name, "suggestion", suggestion)
             if cos_score > self.threshold:
-                print("High score:", cos_score, "for action", action_name, "suggestion", suggestion)
+                #print("High score:", cos_score, "for action", action_name, "suggestion", suggestion)
                 if suggestion in self.all_suggested_actions and update_suggestions:
                     self.all_suggested_actions.remove(suggestion)
                 text_rew = max(cos_score, text_rew)
         if text_rew > 0:
             best_suggestion = suggestion_strs[np.argmax(cos_scores)]
-            print(text_rew, best_suggestion)
+            #print(text_rew, best_suggestion)
         return text_rew, best_suggestion
 
     def _get_model_embeddings(self, str_list):
@@ -627,8 +627,8 @@ class CrafterLMGoalWrapper(CrafterGoalWrapper):
         obs = self._get_full_obs(obs)
         obs['success'] = info['action_success']
         obs['goal_success']  = int(info['eval_success'] and text_reward > 0)
-        if text_reward > 0:
-            print(f"Goal success {obs['goal_success']}, {info['action_success']}, {text_reward}")
+        #if text_reward > 0:
+            #print(f"Goal success {obs['goal_success']}, {info['action_success']}, {text_reward}")
         obs = self.env.tokenize_obs(obs)
         return self._tokenize_goals(obs), reward, done, info
 

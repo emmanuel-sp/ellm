@@ -47,7 +47,7 @@ debug: False
 frame_stack: 4
 discount: 0.99
 # train settings
-num_train_frames: 5000000
+num_train_frames: 50000
 num_seed_frames: 5000
 # eval
 eval_every_frames: 25000
@@ -82,7 +82,7 @@ use_image: true
 use_language_state: null # None for no language state, 'conv' for conv, 'transformer' for transformer, 'sbert' for sbert transformer
 use_goal: false  # Show goal to agent
 vocab_size: 102  # Only used when NOT using a pretrained encoder
-train_log_every: 5000
+train_log_every: 1000
 finetune_settings: train_all  # Other options 'linear' or 'critic' (to only finetune those model components)
 expl_agent_path: null  # If provided, uses this pretrained agent to guide exploration
 other_model_prob: .5  # If using a pretrained agent to guide exploration, what fraction of the time to use it (rather than a random action)

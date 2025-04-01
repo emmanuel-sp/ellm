@@ -124,6 +124,8 @@ class Env(BaseClass):
     if unlocked:
       self._unlocked |= unlocked
       unlock_reward += 1.0
+      for name in unlocked:
+        print(f'Unlocked achievement {name}! Reward Increased.')
     if self.dying:
       dead = self.player.health <= 0
     else:

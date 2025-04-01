@@ -386,7 +386,7 @@ class Workspace:
                             log('episode_length', episode_frame)
                             log('episode', self.global_episode)
                             log('buffer_size', len(self.replay_storage))
-                            log('step', self.global_step)
+                            log('step', self.global_step)#f'{self.global_step} / {self.cfg.num_train_frames}' )
 
                             if 'Housekeep' in self.cfg.env_spec.name:
                                 if self.train_env._rearrange_success is not None:
