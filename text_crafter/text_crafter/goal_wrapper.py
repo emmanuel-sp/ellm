@@ -572,6 +572,7 @@ class CrafterLMGoalWrapper(CrafterGoalWrapper):
                         achieved_goal, text_reward, closest_suggestion = self.custom_reward(action_name)
                     else:
                         text_reward = int(self.check_actions_same(action_name, task))
+                        print(action_name, task, text_reward)
                         closest_suggestion = action_name
                         # Only one case where the action is not a suggested action
                         if action_name == 'eat cow' and task == 'attack cow':
