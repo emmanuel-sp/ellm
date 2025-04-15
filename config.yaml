@@ -47,7 +47,7 @@ debug: False
 frame_stack: 4
 discount: 0.99
 # train settings
-num_train_frames: 50000
+num_train_frames: 5000000
 num_seed_frames: 5000
 # eval
 eval_every_frames: 25000
